@@ -392,31 +392,19 @@ Before deploying, complete these steps:
 
 #### Step 2: Configure the project
 
-On the **Configure Project** screen, use **either** deployment method below.
+### Vercel project settings (required)
 
-#### Method 1 — Repo root (default, uses `vercel.json`)
-
-Leave **Root Directory** empty (repository root). The repo includes `vercel.json` which runs install/build inside `frontend/`.
+In **Vercel → Project → Settings → General**:
 
 | Setting | Value |
 |---------|-------|
-| **Framework Preset** | Next.js |
-| **Root Directory** | *(leave empty)* |
-| **Build Command** | *(auto — from `vercel.json`)* |
-| **Install Command** | *(auto — from `vercel.json`)* |
-
-#### Method 2 — Frontend subdirectory
-
-| Setting | Value |
-|---------|-------|
-| **Framework Preset** | Next.js |
 | **Root Directory** | `frontend` |
-| **Build Command** | `npm run build` (default) |
-| **Install Command** | `npm install` (default) |
 
-Click **Edit** next to Root Directory, type `frontend`, and confirm.
+Click **Edit** next to Root Directory, enter `frontend`, confirm.
 
-> The Next.js app lives in `frontend/`. The repo root also contains legacy Laravel files that must not be built as the app entry.
+In **Settings → Build & Deployment**, leave **Install Command** and **Build Command** empty (use defaults). If you previously set custom commands, clear them.
+
+> Vercel must use `frontend/` as the project root so it finds `next` in `package.json`. Do **not** deploy from the repository root.
 
 #### Step 3: Add environment variables
 
@@ -602,8 +590,8 @@ Then commit and redeploy.
 | Problem | Fix |
 |---------|-----|
 | "Supabase is not configured" on Vercel | Add both `NEXT_PUBLIC_*` env vars; redeploy |
-| `next: command not found` on build | Redeploy after pulling latest (includes `vercel.json`); or set Install Command to `npm install --prefix frontend` |
-| Build fails / wrong framework | Set Root Directory to `frontend`, or use repo-root deploy with `vercel.json` |
+| `next: command not found` on build | Set **Root Directory** to `frontend` in Vercel settings |
+| No Next.js version detected | Set **Root Directory** to `frontend`; clear custom Install/Build commands |
 | Login works locally but not on Vercel | Add Vercel URL to Supabase Redirect URLs |
 | Sign up fails | Enable sign-ups in Supabase Auth → Email provider |
 | Chat not live | Run migrations `003` and `007` in SQL Editor |
