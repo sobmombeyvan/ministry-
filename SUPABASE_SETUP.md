@@ -17,8 +17,11 @@ The app uses **Supabase for everything** — authentication, database, row-level
    - `supabase/migrations/004_signup.sql`
    - `supabase/migrations/005_fix_rls_recursion.sql`
    - `supabase/migrations/006_super_admin.sql`
+   - `supabase/migrations/007_support_chat_access.sql`
 
 This creates tables, RLS policies, triggers, and enables real-time chat on tickets.
+
+**Deploy to production:** see [docs/ARCHITECTURE_AND_DEPLOYMENT.md](../docs/ARCHITECTURE_AND_DEPLOYMENT.md#11-deploy-on-vercel).
 
 ## 3. Create users
 

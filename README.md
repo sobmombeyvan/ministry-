@@ -11,10 +11,12 @@ Web-based IT ticketing platform for the Ministry of Basic Education.
 3. Start the app:
 
 ```powershell
-npm run dev
+.\run.ps1
 ```
 
 Open **http://localhost:3000** and sign in, or register at **/signup**.
+
+**Full architecture guide and Vercel deployment:** see **[docs/ARCHITECTURE_AND_DEPLOYMENT.md](./docs/ARCHITECTURE_AND_DEPLOYMENT.md)**.
 
 ## Scripts
 
